@@ -1,0 +1,17 @@
+def maxIndex(steps: int, badIndex: int) -> int:
+    max_index = 0
+
+    j = 1
+    
+    for i in range(steps):
+        if max_index + j != badIndex:
+
+            max_index += j
+            j += 1
+        else:
+            j += 1
+    return max_index if (badIndex <= steps) else max_index+2
+    
+steps = int(input())
+badindex = int(input())
+print(maxIndex(steps, badindex))
