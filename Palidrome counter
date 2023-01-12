@@ -1,0 +1,21 @@
+def countPalindromes(s: str) -> int:
+    n = len(s)
+    dp = [[0 for i in range(n)] for j in range(n)]
+    for i in range(n):
+        dp[i][i] = 1
+    count = n
+    for start in range(n - 1, -1, -1):
+        for end in range(start + 1, n):
+            if s[start] == s[end]:
+                if end == start + 1:
+                    dp[start][end] = 1
+                else:
+                    dp[start][end] = dp[start + 1][end - 1]
+            if dp[start][end]:
+                count += 1
+    return count
+
+
+
+n= input()
+print(countPalindromes(n))
